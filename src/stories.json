@@ -1,0 +1,20 @@
+[
+    {
+      "template": "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.",
+      "insertX": ["Willy the Goblin", "Big Daddy", "Father Christmas"],
+      "insertY": ["the soup kitchen", "Disneyland", "the White House"],
+      "insertZ": ["spontaneously combusted", "melted into a puddle", "turned into a slug"]
+    },
+    {
+      "template": "One fine morning, :insertx: woke up in :inserty: and immediately :insertz:. Bob couldn’t believe his eyes!",
+      "insertX": ["The Mad Scientist", "Captain Banana", "Professor Giggles"],
+      "insertY": ["a haunted mansion", "a secret lab", "an alien spaceship"],
+      "insertZ": ["danced the Macarena", "invented bubblegum rain", "turned into a giant hamster"]
+    },
+    {
+      "template": "Without warning, :insertx: appeared in :inserty: and :insertz:. Bob just sighed — it was going to be one of those days.",
+      "insertX": ["Super Cat", "The Invisible Man", "Lady Wobble"],
+      "insertY": ["Times Square", "the moon", "a giant aquarium"],
+      "insertZ": ["started juggling flaming pineapples", "sang opera loudly", "fell asleep instantly"]
+    }
+]

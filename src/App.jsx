@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
+import storiesData from "./stories.json";
 
 
 export default function App() {
@@ -9,23 +10,48 @@ export default function App() {
   const [unit, setUnit] = useState("us");
   const [story, setStory] = useState("");
 
-  const storyText =
-    "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+  // const storyText =
+  //   "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
 
-  const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
-  const insertY = ["the soup kitchen", "Disneyland", "the White House"];
-  const insertZ = ["spontaneously combusted", "melted into a puddle", "turned into a slug"];
+  // const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+  // const insertY = ["the soup kitchen", "Disneyland", "the White House"];
+  // const insertZ = ["spontaneously combusted", "melted into a puddle", "turned into a slug"];
+
+  const [stories,setStories] =useState(storiesData);
+
+  // useEffect(() => {
+  //   fetch("/stories.json")
+  //   .then(res => res.json())
+  //   .then((data) => {
+  //     console.log("Loaded JSON:", data);
+  //     setStories(data)
+  //   })
+  //   .catch((err) => console.error("Error in Loading Stories", err));
+  // },[]);
 
   function randomValueFromArray(array) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
   function generateStory() {
-    let newStory = storyText;
 
-    const xItem = randomValueFromArray(insertX);
-    const yItem = randomValueFromArray(insertY);
-    const zItem = randomValueFromArray(insertZ);
+    // let newStory = storyText;
+
+    if (!stories || stories.length === 0)
+      {
+        console.warn("Stories not loaded yet or empty");
+        return;
+      } 
+
+    const randomStory = stories[Math.floor(Math.random() * stories.length)];
+
+    if (!randomStory) return;
+
+    let newStory = randomStory.template;
+
+    const xItem = randomValueFromArray(randomStory.insertX);
+    const yItem = randomValueFromArray(randomStory.insertY);
+    const zItem = randomValueFromArray(randomStory.insertZ);
 
     newStory = newStory
       .replace(/:insertx:/g, xItem)
